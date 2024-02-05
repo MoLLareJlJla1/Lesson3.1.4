@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
-
 @Configuration
 @EnableWebSecurity
 @AllArgsConstructor
@@ -30,10 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().formLogin().successHandler(successUserHandler).permitAll()
                 .and()
                 .logout().permitAll();
-
-
     }
-
 
     @Bean
     public static BCryptPasswordEncoder bCryptPasswordEncoder() {

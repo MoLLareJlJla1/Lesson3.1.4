@@ -14,7 +14,7 @@ import java.security.Principal;
 @Controller
 @AllArgsConstructor
 @RequestMapping("/admin")
-public class AdminController {
+public class    AdminController {
     private UserService userService;
     private RoleService roleService;
 
@@ -58,17 +58,11 @@ public class AdminController {
         return "redirect:/admin/";
     }
 
-    @PostMapping("/update/{id}")
-    public String updateUser(@PathVariable("id") long id, Model model) {
-        model.addAttribute("newUser", userService.getUserById(id));
-        return "add";
-    }
 
     @DeleteMapping("/delete/{id}")
     public String deleteUser(@PathVariable("id") long id) {
         userService.deleteUser(id);
         return "redirect:/admin/";
     }
-
 
 }

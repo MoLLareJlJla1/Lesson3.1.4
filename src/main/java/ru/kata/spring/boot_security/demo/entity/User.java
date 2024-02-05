@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 
 import javax.persistence.*;
 import java.util.*;
@@ -37,17 +37,11 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
-
-
     public void setRoles(Collection<Role> roles) {
         if (roles == null) {
             this.roles = new HashSet<>();
         }
         this.roles.addAll(roles);
-    }
-
-    public void setPassword(String password) {
-        this.password = new BCryptPasswordEncoder(8).encode(password);
     }
 
     public void addRole(Role role){
