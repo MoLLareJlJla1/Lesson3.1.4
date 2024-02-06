@@ -1,5 +1,6 @@
 package ru.kata.spring.boot_security.demo.startTest;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -12,16 +13,11 @@ import javax.annotation.PostConstruct;
 import java.util.Set;
 
 @Component
+@RequiredArgsConstructor
 public class TestRun {
     private final RoleService roleService;
     private final UserService userService;
 
-
-    @Autowired
-    public TestRun(RoleService roleService, UserService userService) {
-        this.roleService = roleService;
-        this.userService = userService;
-    }
 
     @PostConstruct
     public void run() {

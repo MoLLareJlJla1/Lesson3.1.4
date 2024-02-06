@@ -1,6 +1,6 @@
 package ru.kata.spring.boot_security.demo.controller;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,11 +12,11 @@ import java.security.Principal;
 
 
 @Controller
-@AllArgsConstructor
+@RequiredArgsConstructor
 @RequestMapping("/admin")
 public class    AdminController {
-    private UserService userService;
-    private RoleService roleService;
+    private final UserService userService;
+    private final RoleService roleService;
 
     @GetMapping("")
     public String showAllUser(Model model, Principal principal) {

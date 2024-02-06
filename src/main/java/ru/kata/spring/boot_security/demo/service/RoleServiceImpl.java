@@ -1,14 +1,17 @@
 package ru.kata.spring.boot_security.demo.service;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import ru.kata.spring.boot_security.demo.dao.RoleDao;
 import ru.kata.spring.boot_security.demo.entity.Role;
-import ru.kata.spring.boot_security.demo.repo.RoleRepository;
+
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
+@Transactional
 public class RoleServiceImpl implements RoleService {
-    private final RoleRepository roleRepository;
+    private final RoleDao roleRepository;
 
     @Override
     public void saveRole(Role role) {
@@ -17,6 +20,6 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public Role findById(long l) {
-        return roleRepository.findById(l).orElseThrow();
+        return roleRepository.findById(l);
     }
 }
